@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An interactive educational anatomy explorer covering bones, muscles, organs, and associated health conditions.">
+  <title>Anatomy Explorer | Human Anatomy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" data-page="home" aria-label="Anatomy Explorer home">
+      <span class="brand-mark">✦</span>
+      <span>Anatomy Explorer</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <button type="button" data-page="home" class="nav active">Home</button>
+      <button type="button" data-page="explore" class="nav">Explore</button>
+      <button type="button" data-page="conditions" class="nav">Conditions</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="homePage" class="page active">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">INTERACTIVE HUMAN ANATOMY</p>
+          <h1>See the body<br><span>beneath the surface.</span></h1>
+          <p class="lead">
+            Explore the human body layer by layer — from the skeletal framework
+            to muscles and major internal organs. Select a structure to learn
+            what it does and what health conditions may affect it.
+          </p>
+
+          <div class="hero-actions">
+            <button class="primary" type="button" data-go="explore">Start exploring <span>→</span></button>
+            <button class="secondary" type="button" data-go="conditions">Browse conditions</button>
+          </div>
+
+          <div class="feature-row" aria-label="Website features">
+            <div><strong>01</strong><span>Skeleton</span></div>
+            <div><strong>02</strong><span>Muscles</span></div>
+            <div><strong>03</strong><span>Organs</span></div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="scan-line"></div>
+          <div class="hero-label top">SKELETAL SYSTEM</div>
+          <div class="hero-label bottom">ANATOMICAL VIEW · ANTERIOR</div>
+          <img
+            src="assets/skeleton-reference.jpeg"
+            class="hero-skeleton"
+            alt="Anterior view of a human skeleton"
+          >
+          <div class="hero-glow"></div>
+        </div>
+      </div>
+
+      <div class="intro-strip">
+        <div>
+          <span class="strip-number">A</span>
+          <div>
+            <h3>Built for visual learning</h3>
+            <p>Use the interactive model to connect anatomy with common health topics.</p>
+          </div>
+        </div>
+        <div>
+          <span class="strip-number">B</span>
+          <div>
+            <h3>Layered exploration</h3>
+            <p>Switch between bones, muscles, and organs without leaving the explorer.</p>
+          </div>
+        </div>
+        <div>
+          <span class="strip-number">C</span>
+          <div>
+            <h3>Educational reference</h3>
+            <p>Designed for general anatomy learning — not diagnosis or treatment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPLORE -->
+    <section id="explorePage" class="page">
+      <div class="explore-heading">
+        <div>
+          <p class="eyebrow">ANATOMY LAB</p>
+          <h2>Explore the human body</h2>
+          <p class="section-lead">
+            Choose a system, then select a highlighted region to open its anatomy card.
+          </p>
+        </div>
+        <div class="view-status">
+          <span class="status-dot"></span>
+          Interactive model
+        </div>
+      </div>
+
+      <div class="explore-grid">
+        <aside class="panel layer-panel">
+          <p class="panel-label">BODY LAYERS</p>
+          <h3>Choose a view</h3>
+
+          <button type="button" class="layer active" data-layer="skeleton">
+            <span class="layer-icon">01</span>
+            <span><strong>Skeleton</strong><small>Bones & joints</small></span>
+          </button>
+
+          <button type="button" class="layer" data-layer="muscles">
+            <span class="layer-icon">02</span>
+            <span><strong>Muscles</strong><small>Movement & support</small></span>
+          </button>
+
+          <button type="button" class="layer" data-layer="organs">
+            <span class="layer-icon">03</span>
+            <span><strong>Organs</strong><small>Internal systems</small></span>
+          </button>
+
+          <div class="tip-box">
+            <span>TIP</span>
+            <p>Hover over a region to reveal the clickable anatomy zone.</p>
+          </div>
+        </aside>
+
+        <section class="panel anatomy-stage">
+          <div class="stage-topline">
+            <div>
+              <span class="stage-kicker">CURRENT VIEW</span>
+              <h2 id="layerTitle">Skeletal System</h2>
+            </div>
+            <span class="anterior-badge">ANTERIOR</span>
+          </div>
+
+          <!-- Skeleton -->
+          <div id="skeletonLayer" class="body-layer active-layer">
+            <div class="body-image-wrap skeleton-wrap">
+              <img
+                src="assets/skeleton-reference.jpeg"
+                class="anatomy-image"
+                alt="Detailed anterior human skeleton"
+              >
+
+              <!-- Transparent clickable regions positioned over the supplied image -->
+              <button type="button" class="image-hotspot" data-key="skull"
+                style="left:50%; top:10%; width:22%; height:12%;" aria-label="Skull"></button>
+              <button type="button" class="image-hotspot" data-key="spine"
+                style="left:43%; top:17%; width:14%; height:36%;" aria-label="Vertebral column"></button>
+              <button type="button" class="image-hotspot" data-key="ribcage"
+                style="left:31%; top:18%; width:38%; height:25%;" aria-label="Rib cage"></button>
+              <button type="button" class="image-hotspot" data-key="pelvis"
+                style="left:31%; top:43%; width:38%; height:15%;" aria-label="Pelvis"></button>
+              <button type="button" class="image-hotspot" data-key="arm-bones"
+                style="left:10%; top:18%; width:80%; height:37%;" aria-label="Upper limb bones"></button>
+              <button type="button" class="image-hotspot" data-key="leg-bones"
+                style="left:27%; top:51%; width:46%; height:47%;" aria-label="Lower limb bones"></button>
+            </div>
+          </div>
+
+          <!-- Muscles -->
+          <div id="musclesLayer" class="body-layer">
+            <div class="body-image-wrap muscle-wrap">
+              <svg class="overlay-svg" viewBox="0 0 632 1211" role="img" aria-label="Stylized muscular system regions">
+                <g class="muscle-region hotspot" data-key="facial-muscles">
+                  <ellipse cx="316" cy="115" rx="62" ry="76"></ellipse>
+                </g>
+                <g class="muscle-region hotspot" data-key="chest-muscles">
+                  <path d="M215 205 Q316 165 417 205 L445 430 Q375 470 316 435 Q257 470 187 430Z"></path>
+                </g>
+                <g class="muscle-region hotspot" data-key="abdominals">
+                  <path d="M220 430 Q316 460 412 430 L400 650 Q316 695 232 650Z"></path>
+                </g>
+                <g class="muscle-region hotspot" data-key="arm-muscles">
+                  <path d="M202 210 Q155 280 120 500 L155 560 Q205 450 230 315Z M430 210 Q477 280 512 500 L477 560 Q427 450 402 315Z"></path>
+                </g>
+                <g class="muscle-region hotspot" data-key="leg-muscles">
+                  <path d="M235 650 Q200 790 215 1000 L275 1080 L315 820 L280 680Z M397 650 Q432 790 417 1000 L357 1080 L317 820 L352 680Z"></path>
+                </g>
+              </svg>
+              <div class="layer-placeholder-note">Stylized educational muscle map</div>
+            </div>
+          </div>
+
+          <!-- Organs -->
+          <div id="organsLayer" class="body-layer">
+            <div class="body-image-wrap organ-wrap">
+              <svg class="overlay-svg" viewBox="0 0 632 1211" role="img" aria-label="Stylized internal organs">
+                <g class="organ-region hotspot" data-key="lungs">
+                  <path d="M245 265 C195 250 175 330 188 455 C198 525 245 515 296 475 L300 300Z"></path>
+                  <path d="M387 265 C437 250 457 330 444 455 C434 525 387 515 336 475 L332 300Z"></path>
+                </g>
+                <g class="organ-region hotspot" data-key="heart">
+                  <path d="M316 350 C270 310 238 350 252 392 C267 438 316 472 316 472 C316 472 365 438 380 392 C394 350 362 310 316 350Z"></path>
+                </g>
+                <g class="organ-region hotspot" data-key="liver">
+                  <path d="M210 485 Q310 445 430 490 L412 590 Q320 630 205 575Z"></path>
+                </g>
+                <g class="organ-region hotspot" data-key="kidneys">
+                  <ellipse cx="250" cy="655" rx="42" ry="65"></ellipse>
+                  <ellipse cx="382" cy="655" rx="42" ry="65"></ellipse>
+                </g>
+                <g class="organ-region hotspot" data-key="intestines">
+                  <path d="M230 755 Q316 710 402 755 Q450 845 405 930 Q316 995 227 930 Q182 845 230 755Z"></path>
+                  <path d="M250 785 Q316 745 382 785 Q410 830 385 875 Q316 915 247 875 Q222 830 250 785Z"></path>
+                </g>
+              </svg>
+              <div class="layer-placeholder-note">Stylized educational organ map</div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="panel info-panel">
+          <p class="panel-label">STRUCTURE DETAILS</p>
+          <div id="infoBox" class="info-box">
+            <div class="empty-icon">＋</div>
+            <h3>Select a structure</h3>
+            <p>Choose a highlighted region on the anatomy model to learn more.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONDITIONS -->
+    <section id="conditionsPage" class="page conditions-page">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">HEALTH LIBRARY</p>
+          <h2>Conditions by body system</h2>
+          <p class="section-lead">
+            Search the educational condition library by condition name, organ, or description.
+          </p>
+        </div>
+
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="search" type="search" placeholder="Search a condition or organ" autocomplete="off">
+        </label>
+      </div>
+
+      <div class="filters" role="group" aria-label="Condition filters">
+        <button type="button" class="filter active" data-filter="all">All</button>
+        <button type="button" class="filter" data-filter="skeletal">Skeletal</button>
+        <button type="button" class="filter" data-filter="muscular">Muscular</button>
+        <button type="button" class="filter" data-filter="organ">Organs</button>
+      </div>
+
+      <div id="conditionGrid" class="condition-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>ANATOMY EXPLORER</span>
+      <span>Educational use only · Not a substitute for professional medical advice.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
